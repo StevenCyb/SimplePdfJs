@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Demo-6</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>body {text-align: center;}</style>
+        <script src="../simple_pdf.js"></script>
+    </head>
+    <body>
+        <script>
+            // Create a new PDF object with A4 size pages and metainformations (see below)
+            var pdf = new SimplePdf({}, SimplePdfPageDimension.A4);
+            // Add a page
+            pdf.addPage();
+            // Set the font Helvetica
+            pdf.setFont(SimplePdfBaseFont.HELVETICA);
+            // Add a link to the webpage https://www.google.com/, 
+            // use Google.com as link text, font size 14pt and the position x:25mm y:25mm
+            pdf.addLink('Google.com', 'https://www.google.com/', 14, 25, 25);
+            // Add a link to the C: drive, 
+            // use Drive C: as link text, font size 14pt and the position x:25mm y:35mm
+            pdf.addLink('Drive C:', 'file:///C:\\', 14, 25, 35);
+            // Add a link to the repository, 
+            // use Repository as link text, font size 14pt and the position x:25mm y:45mm
+            pdf.addLink('Repository', 'https://github.com/StevenCyb/SimplePdfJs', 14, 25, 45);
+        </script>
+        <p>A simple example showing how to add links.</p>
+        <button onclick="pdf.open();">OPEN</button>
+        <button onclick="pdf.save('demo_6.pdf');">SAVE</button>
+    </body>
+</html>

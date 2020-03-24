@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Demo-10</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>body {text-align: center;}</style>
+        <script src="../simple_pdf.js"></script>
+    </head>
+    <body onload="onload()">
+        <script>
+            // Create a new PDF object with A4 size pages and metainformations (see below)
+            var pdf = new SimplePdf({}, SimplePdfPageDimension.A4);
+            // Add a page
+            pdf.addPage();
+            function onload() {
+                // Add a image from url and set it on x:10mm y:10mm width:150mm and height:100mm
+                pdf.addImage('https://raw.githubusercontent.com/StevenCyb/Terminal-Prompt-CSS/master/demo.jpg', 10, 10, 150, 100, function() {
+                    console.log('Image loaded');
+                });
+                // Add a image from image element and set it on x:10mm y:120mm width:50mm and height:50mm
+                pdf.addImage(document.getElementById('example-image'), 10, 120, 50, 50);
+                // Draw a demo canvas
+                var canvas = document.getElementById('example-canvas')
+                    ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+                ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(250, 250);
+                ctx.stroke();
+                ctx.strokeStyle = '#FF0000';
+                ctx.font = '30px Arial';
+                ctx.strokeText('This is a canvas', 30, 200);
+                // Add a image from canvas and set it on x:70mm y:120mm width:75mm and height:75mm
+                pdf.addImage(canvas, 70, 120, 75, 75);
+            }
+        </script>
+        <p>A simple example for drawing images with and without alpha channel.</p>
+        <button onclick="pdf.open();">OPEN</button>
+        <button onclick="pdf.save('demo_10.pdf');">SAVE</button>
+        <br>
+        <img id="example-image" style="margin-top: 10px;" src="data:image/png;base64,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">
+        <canvas id="example-canvas" width="250" height="250"></canvas>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Demo-4</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>body {text-align: center;}</style>
+        <script src="../simple_pdf.js"></script>
+    </head>
+    <body>
+        <script>
+            // Create a new PDF object with A4 size pages and metainformations (see below)
+            var pdf = new SimplePdf({}, SimplePdfPageDimension.A4);
+            // Create two pages with "Hallo Wolds" in various fonts
+            for(var i=0; i<2; i++) { // Loop is running two times
+                // Add a page
+                pdf.addPage();
+                // Set the example content in various fonts
+                pdf.setFont(SimplePdfBaseFont.TIMES_ROMAN);
+                pdf.addText('Hello World', 16, 20, 15);
+                pdf.setFont(SimplePdfBaseFont.TIMES_ITALIC);
+                pdf.addText('Hello World', 16, 20, 30);
+                pdf.setFont(SimplePdfBaseFont.TIMES_BOLD);
+                pdf.addText('Hello World', 16, 20, 45);
+                pdf.setFont(SimplePdfBaseFont.TIMES_BOLD_ITALIC);
+                pdf.addText('Hello World', 16, 20, 60);
+                pdf.setFont(SimplePdfBaseFont.HELVETICA);
+                pdf.addText('Hello World', 16, 20, 75);
+                pdf.setFont(SimplePdfBaseFont.HELVETICA_OBLIQUE);
+                pdf.addText('Hello World', 16, 20, 90);
+                pdf.setFont(SimplePdfBaseFont.HELVETICA_BOLD);
+                pdf.addText('Hello World', 16, 20, 105);
+                pdf.setFont(SimplePdfBaseFont.HELVETICA_BOLD_OBLIQUE);
+                pdf.addText('Hello World', 16, 20, 120);
+                pdf.setFont(SimplePdfBaseFont.COURIER);
+                pdf.addText('Hello World', 16, 20, 135);
+                pdf.setFont(SimplePdfBaseFont.COURIER_OBLIQUE);
+                pdf.addText('Hello World', 16, 20, 150);
+                pdf.setFont(SimplePdfBaseFont.COURIER_BOLD);
+                pdf.addText('Hello World', 16, 20, 165);
+                pdf.setFont(SimplePdfBaseFont.COURIER_BOLD_OBLIQUE);
+                pdf.addText('Hello World', 16, 20, 180);
+                pdf.setFont(SimplePdfBaseFont.SYMBOL);
+                pdf.addText('Hello World', 16, 20, 195);
+                pdf.setFont(SimplePdfBaseFont.ZAPF_DINGBATS);
+                pdf.addText('Hello World', 16, 20, 210);
+            }
+        </script>
+        <p>A simple example with two pages and various fonts.</p>
+        <button onclick="pdf.open();">OPEN</button>
+        <button onclick="pdf.save('demo_4.pdf');">SAVE</button>
+    </body>
+</html>

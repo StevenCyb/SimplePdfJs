@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Demo-8</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>body {text-align: center;}</style>
+        <script src="../simple_pdf.js"></script>
+    </head>
+    <body>
+        <script>
+            // Create a new PDF object with A4 size pages and metainformations (see below)
+            var pdf = new SimplePdf({}, SimplePdfPageDimension.A4);
+            // Add a page
+            pdf.addPage();
+            // Draw a curve with given points. This function is quite complicated to explain. 
+            // You can get a german explanation in the following website:
+            // http://www.p2501.ch/pdf-howto/grundlagen/seiteninhalt/linien
+            pdf.drawCurve([50, 150], [[50, 112.5, 150, 112.5, 150, 150]], 5, 0, []);
+            pdf.drawCurve([50, 100], [[50, 75, 100, 75, 100, 100]], 5, 1, [1, 5]);
+            pdf.drawCurve([100, 250], [[100, 200, 100, 200, 150, 200]], 5, 1, [2, 8]);
+        </script>
+        <p>A simple example for drawing curves.</p>
+        <button onclick="pdf.open();">OPEN</button>
+        <button onclick="pdf.save('demo_8.pdf');">SAVE</button>
+    </body>
+</html>

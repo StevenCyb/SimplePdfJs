@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Demo-9</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>body {text-align: center;}</style>
+        <script src="../simple_pdf.js"></script>
+    </head>
+    <body>
+        <script>
+            // Create a new PDF object with A4 size pages and metainformations (see below)
+            var pdf = new SimplePdf({}, SimplePdfPageDimension.A4);
+            // Add a page
+            pdf.addPage();
+            // Draw a ractangle on x:20mm y:20mm width:50mm heigt:50mm line-width:5, fill it and draw the border 
+            pdf.drawRectangle(20, 20, 50, 50, true, true, 5);
+            // Set fill color to r:0 g:255 b:255
+            pdf.setFillColor(0, 255, 255);
+            // Set line color to r:0 g:255 b:0
+            pdf.setLineColor(0, 255, 0);
+            // Draw a ractangle on x:90mm y:20mm width:50mm heigt:50mm line-width:5, round cap, fill it and draw the border 
+            pdf.drawRectangle(90, 20, 50, 50, true, true, 5, 1);
+            // Draw a ractangle on x:20mm y:90mm width:50mm heigt:50mm line-width:5 and fill  
+            pdf.drawRectangle(20, 90, 50, 50, false, true, 5, 1);
+            // Set fill color to r:235 g:64 b:52
+            pdf.setFillColor(235, 64, 52);
+            // Set line color to r:235 g:165 b:52
+            pdf.setLineColor(235, 165, 52);
+            // Draw a polygon with the given corner points and line-width:5, fill the area and draw line 
+            pdf.drawPolygon([[90, 140], [140, 140], [115, 90]], true, true, 5);
+            // Draw a polygon with the given corner points and line-width:2 and draw line 
+            pdf.drawPolygon([[20, 160], [200, 180], [150, 220], [190, 240], [110, 265]], true, false, 2);
+        </script>
+        <p>A simple example for drawing areas with or without border or filling.</p>
+        <button onclick="pdf.open();">OPEN</button>
+        <button onclick="pdf.save('demo_9.pdf');">SAVE</button>
+    </body>
+</html>

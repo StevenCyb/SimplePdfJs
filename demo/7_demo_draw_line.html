@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Demo-7</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>body {text-align: center;}</style>
+        <script src="../simple_pdf.js"></script>
+    </head>
+    <body>
+        <script>
+            // Create a new PDF object with A4 size pages and metainformations (see below)
+            var pdf = new SimplePdf({}, SimplePdfPageDimension.A4);
+            // Add a page
+            pdf.addPage();
+            // Set line color to r:0 g:0 b:255
+            pdf.setLineColor(0, 0, 255);
+            // Draw a line from x:10mm y:40mm to x:200mm y:40mm, width of 5pt and butt cap
+            pdf.drawLine([[10, 40], [200, 40]], 5, 0);
+            // Set line color to r:255 g:0 b:0
+            pdf.setLineColor(255, 0, 0);
+            // Draw a line from x:10mm y:60mm to x:200mm y:60mm, width of 5pt and round cap
+            pdf.drawLine([[10, 60], [200, 60]], 5, 1);
+            // Set line color to r:0 g:255 b:0
+            pdf.setLineColor(0, 255, 0);
+            // Draw a line from x:10mm y:80mm to x:200mm y:80mm, width of 5pt and square cap
+            pdf.drawLine([[10, 80], [200, 80]], 5, 2);
+            // Set line color to r:0 g:0 b:0
+            pdf.setLineColor(0, 0, 0);
+            // Draw a line from x:10mm y:100mm to x:200mm y:100mm, width of 5pt, butt cap and phase [3]
+            pdf.drawLine([[10, 100], [200, 100]], 5, 0, [3]);
+            // Draw a line from x:10mm y:120mm to x:200mm y:120mm, width of 5pt, butt cap and phase [5, 10]
+            pdf.drawLine([[10, 120], [200, 120]], 5, 0, [5, 10]);
+            // Draw a line from x:10mm y:140mm to x:200mm y:140mm, width of 5pt, butt cap, phase [5, 10] and shift of 2.5
+            pdf.drawLine([[10, 140], [200, 140]], 5, 0, [5, 10], 2.5);
+            // Draw a line from x:10mm y:160mm over x:200mm y:160mm over x:200mm y:190mm to x:10mm y:190mm 
+            // width of 10pt and butt cap
+            pdf.drawLine([[10, 160], [200, 160], [200, 190], [10, 190]], 10, 0);
+            // Draw a line from x:10mm y:120mm over x:200mm y:210mm over x:200mm y:240mm to x:10mm y:240mm 
+            // width of 10pt and round cap
+            pdf.drawLine([[10, 210], [200, 210], [200, 240], [10, 240]], 10, 1);
+        </script>
+        <p>A simple example for drawing lines.</p>
+        <button onclick="pdf.open();">OPEN</button>
+        <button onclick="pdf.save('demo_7.pdf');">SAVE</button>
+    </body>
+</html>

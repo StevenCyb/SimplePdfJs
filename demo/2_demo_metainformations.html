@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Demo-2</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>body {text-align: center;}</style>
+        <script src="../simple_pdf.js"></script>
+    </head>
+    <body>
+        <script>
+            // Create a new PDF object with A4 size pages and metainformations (see below)
+            var pdf = new SimplePdf({
+                title: 'A blank PDF',
+                author: 'Steven Cybinski',
+                creator: 'SimplePdfJs',
+                producer: 'Lib-SimplePdfJs',
+                subject: 'This is a blank PDF',
+                keywords: 'PDF, blank, cool'
+            }, SimplePdfPageDimension.A4);
+            // Add a page
+            pdf.addPage();
+        </script>
+        <p>A blank A4 page with metadata.</p>
+        <button onclick="pdf.open();">OPEN</button>
+        <button onclick="pdf.save('demo_2.pdf');">SAVE</button>
+    </body>
+</html>
