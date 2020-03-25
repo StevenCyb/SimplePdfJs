@@ -296,7 +296,7 @@ class SimplePdf {
             (('creation_date' in metadata)?metadata.creation_date:(
                 'D:' + //(D:YYYYMMDDHHmmSSOHH'mm')
                 this.numPad(now.getFullYear(), 4) +
-                this.numPad(now.getMonth(), 2) +
+                this.numPad(now.getMonth() + 1, 2) +
                 this.numPad(now.getDate(), 2) +
                 this.numPad(now.getHours(), 2) +
                 this.numPad(now.getMinutes(), 2) +
@@ -306,7 +306,7 @@ class SimplePdf {
             (('mod_date' in metadata)?metadata.mod_date:(
                 'D:' + //(D:YYYYMMDDHHmmSSOHH'mm')
                 this.numPad(now.getFullYear(), 4) +
-                this.numPad(now.getMonth(), 2) +
+                this.numPad(now.getMonth() + 1, 2) +
                 this.numPad(now.getDate(), 2) +
                 this.numPad(now.getHours(), 2) +
                 this.numPad(now.getMinutes(), 2) +
